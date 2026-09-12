@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  body {
+    @apply bg-base text-ink font-body antialiased;
+    background-image:
+      radial-gradient(circle at 15% 0%, rgba(79, 201, 224, 0.06), transparent 45%),
+      radial-gradient(circle at 85% 15%, rgba(224, 164, 88, 0.04), transparent 40%);
+  }
+
+  ::selection {
+    background: #4FC9E0;
+    color: #0A0D11;
+  }
+
+  :focus-visible {
+    outline: 2px solid #4FC9E0;
+    outline-offset: 3px;
+  }
+}
+
+@layer components {
+  .section {
+    @apply mx-auto w-full max-w-5xl px-6 py-24 sm:px-8 md:py-32;
+  }
+
+  .section-label {
+    @apply font-mono text-sm text-signal;
+  }
+
+  .heading-lg {
+    @apply font-display text-4xl font-semibold leading-[1.1] text-ink sm:text-5xl;
+  }
+
+  .body-text {
+    @apply text-base leading-relaxed text-ink-muted sm:text-lg;
+  }
+
+  .pill {
+    @apply rounded-full border border-base-line px-3 py-1 font-mono text-xs text-ink-muted;
+  }
+}
